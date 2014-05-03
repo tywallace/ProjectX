@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block body %}
+    <h1>Welcome!</h1>
+    {% if 'username' in session %}
+        <p>Welcome back {{session['username']}}!</p>
+        <form action="{{url_for('login')}}" method="post">
+            <input type="submit" name="logout" value="logout" />
+        </form>
+    {% else %}
+        <p>A login is required:</p>
+        <form action="{{url_for('login')}}" method="post">
+            <input type="text" class="input-block-level" placeholder= "Username" name="username" /></p>
+            <input type="password" class="input-block-level" placeholder="Password" name="passwd" /></p>
+            <p><input class="btn btn-large btn-primary" type="submit" value="Sign in" /></p>
+        </form>
+    {% endif %}
+    {% with messages = get_flashed_messages() %}
+        {% for message in messages %}
+            {{message}}
+        {% endfor %}
+    {% endwith %}
+{% endblock %}
