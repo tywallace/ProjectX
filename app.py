@@ -12,7 +12,7 @@ from music import Music
 from landing import Landing
 from callback import Callback
 
-app = flask.Flask(__name__)
+app = flask.Flask(__name__, static_url_path='/static')
 app.secret_key = settings.secret_key
 main_view_func = Main.as_view('main')
 
@@ -28,6 +28,7 @@ app.add_url_rule('/login/',
                  methods=["GET", "POST"])
 app.add_url_rule('/remote/',
                  view_func=Remote.as_view('remote'),
+                 
                  methods=['GET', 'POST'])
 app.add_url_rule('/music/',
                  view_func=Music.as_view('music'),
@@ -41,4 +42,11 @@ def page_not_found(error):
 	return flask.render_template('404.html'), 404
 	
 app.debug = True
-app.run()
+
+if __name__ == '__main__':
+    port = int(os.environ.get('PORT', 5000))
+
+    if port == 5000:
+        app.debug = True
+
+    app.run(host='0.0.0.0', port=port)
