@@ -3,6 +3,7 @@
 
 import flask
 import settings
+import os
 
 # Views
 from main import Main
