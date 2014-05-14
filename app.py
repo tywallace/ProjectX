@@ -41,8 +41,6 @@ app.add_url_rule('/callback/',
 @app.errorhandler(404)
 def page_not_found(error):
 	return flask.render_template('404.html'), 404
-	
-app.debug = True
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
