@@ -1,0 +1,20 @@
+M,S-136358,9,0216 ,   ,Building Line
+M,S-136358,10,0229 ,   ,Curb Line
+M,S-136562,1,0000 ,   ,Curb Line
+M,S-136562,2,0019 ,   ,Building Line
+M,S-136562,3,0071 ,   ,NO PARKING 8AM-6PM MON THRU FRI <-----> (SUPERSEDED BY PS-15G)                                                                                                          
+M,S-136562,4,0245 ,   ,NO PARKING 8AM-6PM MON THRU FRI <-----> (SUPERSEDED BY PS-15G)                                                                                                          
+M,S-136562,5,0356 ,W  ,NO STANDING ANYTIME (SINGLE ARROW) (REPLACES R7-20RA)                                                                                                                   
+M,S-136562,6,0356 ,E  ,NO PARKING 8AM-6PM MON THRU FRI (SINGLE ARROW) (SUPERSEDED BY PS-15GA)                                                                                                  
+M,S-136562,7,0485 ,E  ,NO STANDING ANYTIME (SINGLE ARROW) (REPLACES R7-20RA)                                                                                                                   
+M,S-136562,8,0485 ,W  ,NO PARKING 8AM-6PM MON THRU FRI (SINGLE ARROW) (SUPERSEDED BY PS-15GA)                                                                                                  
+M,S-136562,9,0767 ,   ,NO PARKING 8AM-6PM MON THRU FRI <-----> (SUPERSEDED BY PS-15G)                                                                                                          
+M,S-136562,10,0820 ,   ,Building Line
+M,S-136562,11,0836 ,   ,Curb Line
+M,S-136688,1,0000 ,   ,Curb Line
+M,S-136688,2,0020 ,   ,Building Line
+M,S-136688,3,0053 ,E  ,NO STANDING 7AM-4PM SCHOOL DAYS (SINGLE ARROW)(SUPERSEDED BY PS-31GA)                                                                                                   
+M,S-136688,4,0053 ,   ,NO PARKING (SANITATION BROOM SYMBOL) 9-10:30AM MON & THURS <----> (SUPERSEDED BY PS-113B)                                                                               
+M,S-136688,5,0279 ,   ,NO PARKING (SANITATION BROOM SYMBOL) 9-10:30AM MON & THURS <----> (SUPERSEDED BY PS-113B)                                                                               
+M,S-136688,6,0372 ,   ,NO PARKING (SANITATION BROOM SYMBOL) 9-10:30AM MON & THURS <----> (SUPERSEDED BY PS-113B)                                                                               
+M,S-136688,7,0564 ,   ,NO PARKING (SANITATION BROOM SYMBOL) 9-10:30AM MON & THURS <----> (SUPERSEDED BY PS-113B)

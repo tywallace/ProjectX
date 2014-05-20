@@ -20,7 +20,7 @@ main_view_func = Main.as_view('main')
 # Routes
 app.add_url_rule('/',
                  view_func=Landing.as_view('landing'),
-                 methods=["GET"])
+                 methods=["GET", "POST"])
 app.add_url_rule('/<page>/',
                  view_func=main_view_func,
                  methods=["GET"])
