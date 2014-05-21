@@ -1,13 +1,16 @@
 import csv
+from street_cleaning import if_cleaning
 
-reader= csv.reader(open("signs_test.CSV","r"))
+reader= csv.reader(open("signs.CSV","r"))
 s = {}
 
 for boro,primary,sequence,distance,arrow,description in reader:
-	print boro, primary, sequence, distance, arrow, description
-	if primary in s:
-		s[primary].append(description)
-	else:
-		s[primary] = [description]
+	description = if_cleaning(description)
+	if description != None:
+		if primary not in s:
+			s[primary] = description
 
-print s
+
+# u = {}
+# for key, value in s.iteritems():
+# 	u[key] = list(set(value))
