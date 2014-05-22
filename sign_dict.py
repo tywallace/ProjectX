@@ -1,7 +1,7 @@
 import csv
 from street_cleaning import if_cleaning
 
-reader= csv.reader(open("signs_test.CSV","r"))
+reader= csv.reader(open("signs.CSV","r"))
 s = {}
 
 for row in reader:

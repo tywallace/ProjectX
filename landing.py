@@ -1,7 +1,6 @@
 import flask, flask.views
 import os
 
-from location_dict import d
 from identify_location import identify_location
 from sign_dict import s
 
@@ -23,18 +22,17 @@ class Landing(flask.views.MethodView):
 		street = flask.request.form['street']
 		cross1 = flask.request.form['cross1']
 		cross2 = flask.request.form['cross2']
-		side_list = ["N","S","E","W"]
-
+		side_list = ["n","s","e","w"]
 		location = identify_location(boro,street,cross1,cross2,side_list)
-		
-		for x in ["N","S","E","W"]:
+		side_dict = {"n":"north","s":"south","e":"east","w":"west"}
+		for x in side_list:
 			if x in location:
 				a = location[x]
 				if a in s:
 					b = s[a]
-					flask.flash(b)
-				else:
-					flask.flash(a + " not a location with street cleaning")
+					flask.flash("Street cleaning will start on the " + side_dict[x] + " side at " + b[0] + " and end at " + b[1] + " " + b[2] + " on " + b[3])
+			else:
+				flask.flash("There is no street cleaning on the " + side_dict[x] + " side of the street you specified")
 		# if "N" in location:
 		# 	north = location["N"]
 		# 	flask.flash(north)
