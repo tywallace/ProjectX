@@ -1,5 +1,6 @@
 def if_cleaning(s):
 	cleaninglist = []
+	originalline = s
 	if "(SANITATION BROOM SYMBOL)" in s:
 		s = s[s.index("(SANITATION BROOM SYMBOL)")+25:]
 		# s = s[:s.index("<")]
@@ -7,6 +8,8 @@ def if_cleaning(s):
 			s = s.replace("TO","-")
 		if "=" in s:
 			s = s.replace("=","-")
+		if "--" in s:
+			s = s.replace("--","-")
 		if "NOON" in s:
 			s = s.replace("NOON","12PM")
 		if "MIDNIGHT" in s:
@@ -29,26 +32,33 @@ def if_cleaning(s):
 		
 		if "TUES & FRI" in s:
 			day = "Tuesday & Friday"
-		if "TUES & F RI" in s:
+		elif "TUES & F RI" in s:
 			day = "Tuesday & Friday"
-		elif " SAT " in s:
-			day = "Saturday"
+		elif "TUES THURS SAT":
+			day = "Tuesday, Thursday & Saturday"
 		elif "EXCEPT SUN" in s:
 			day = "Except Sunday"
-		elif "MON TUES THURS FRI":
+		elif "MON TUES THURS FRI" in s:
 			day = "Monday, Tuesday, Thursday & Friday"
-		elif "MON & THURS":
+		elif "MON & THURS" in s:
 			day = "Monday & Thursday"
-		elif " WED ":
+		elif "MON WED FRI" in s:
+			day = "Monday, Wednesday & Friday"
+		elif "MON&THURS":
+			day = "Monday & Thursday"
+		elif " WED " in s:
 			day = "Wednesday"
-		elif " WEDNESDAY ":
+		elif " WEDNESDAY " in s:
 			day = "Wednesday"
+		elif " SAT " in s:
+			day = "Saturday"
+		else:
+			print originalline
 
 		
 		cleaninglist.append(start.strip())
 		cleaninglist.append(end.strip())
 		cleaninglist.append(time.strip())
 		cleaninglist.append(day.strip())
-		
 		return cleaninglist 
 

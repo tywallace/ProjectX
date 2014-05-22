@@ -1,7 +1,7 @@
 import csv
 from street_cleaning import if_cleaning
 
-reader= csv.reader(open("signs.CSV","r"))
+reader= csv.reader(open("signs_test.CSV","r"))
 s = {}
 
 for row in reader:
@@ -10,6 +10,7 @@ for row in reader:
 		if row[1] not in s:
 			s[row[1]] = description
 
-# u = {}
-# for key, value in s.iteritems():
-# 	u[key] = list(set(value))
+with open("signs_final.CSV", 'wb') as outfile:
+	csv_writer = csv.writer(outfile, delimiter=',', quoting=csv.QUOTE_MINIMAL)
+	for k,v in s.items():
+		csv_writer.writerow([k,v])

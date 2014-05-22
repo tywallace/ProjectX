@@ -26,20 +26,31 @@ class Landing(flask.views.MethodView):
 		side_list = ["N","S","E","W"]
 
 		location = identify_location(boro,street,cross1,cross2,side_list)
-		if "N" in location:
-			north = location["N"]
-			nrules = s[north]
-			flask.flash(nrules)
-		elif "S" in location:
-			south = location["S"]
-			srules = s[south]
-			flask.flash(nrules)
-		elif "E" in location:
-			east = location["E"]
-			erules = s[east]
-			flask.flash(nrules)
-		elif "W" in location:
-			west = location["W"]
-			wrules = s[west]
-			flask.flash(nrules)
+		
+		for x in ["N","S","E","W"]:
+			if x in location:
+				a = location[x]
+				if a in s:
+					b = s[a]
+					flask.flash(b)
+				else:
+					flask.flash(a + " not a location with street cleaning")
+		# if "N" in location:
+		# 	north = location["N"]
+		# 	flask.flash(north)
+		# 	nrules = s[north]
+		# 	flask.flash(nrules)
+		# if "S" in location:
+		# 	south = location["S"]
+		# 	flask.flash(south)
+		# 	srules = s[south]
+		# 	flask.flash(nrules)
+		# if "E" in location:
+		# 	east = location["E"]
+		# 	erules = s[east]
+		# 	flask.flash(nrules)
+		# if "W" in location:
+		# 	west = location["W"]
+		# 	wrules = s[west]
+		# 	flask.flash(nrules)
 		return flask.redirect(flask.url_for('landing'))

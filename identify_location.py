@@ -17,5 +17,4 @@ def identify_location(boro,street,cross1,cross2,side_list):
 	if location == {}:
 		flask.flash("Street not found")
 	else:
-		flask.flash(location)
 		return location
