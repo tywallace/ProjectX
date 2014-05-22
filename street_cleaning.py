@@ -1,38 +1,54 @@
 def if_cleaning(s):
-	print s
 	cleaninglist = []
 	if "(SANITATION BROOM SYMBOL)" in s:
 		s = s[s.index("(SANITATION BROOM SYMBOL)")+25:]
-		s = s[:s.index("<")]
+		# s = s[:s.index("<")]
 		if "TO" in s:
 			s = s.replace("TO","-")
-		print s
+		if "=" in s:
+			s = s.replace("=","-")
+		if "NOON" in s:
+			s = s.replace("NOON","12PM")
+		if "MIDNIGHT" in s:
+			s = s.replace("MIDNIGHT","12AM")
+
+		start = s[:s.index("-")]
+		s = s[len(start)+1:]
 		
-		start = s[0:s.index("-")]
-		s = s[len(start):]
-		print s
-		end = s[s.index("-")+1:s.index(" ")+1]
+		start = start.strip()
+		if "AM" in start:
+			start = start[:-2]
+		elif "PM" in start:
+			start = start[:-2]
 		
-		if ":" not in end:
-			end = end[:-3]
-		s = s[len(start)+len(end)+1:]
-		print "time " + s
+		end = s[:s.index("M")-1]
+		s = s[len(end):]
+		
 		time = s[:2]
+		s = s[len(time):]
 		
-		if "&" in s:
-			day1len = s.index("&")
-			day1 = s[2:day1len]
-			day2 = s[day1len+1:]
-		
-		day1 = s[2:]
-		day2 = ""
+		if "TUES & FRI" in s:
+			day = "Tuesday & Friday"
+		if "TUES & F RI" in s:
+			day = "Tuesday & Friday"
+		elif " SAT " in s:
+			day = "Saturday"
+		elif "EXCEPT SUN" in s:
+			day = "Except Sunday"
+		elif "MON TUES THURS FRI":
+			day = "Monday, Tuesday, Thursday & Friday"
+		elif "MON & THURS":
+			day = "Monday & Thursday"
+		elif " WED ":
+			day = "Wednesday"
+		elif " WEDNESDAY ":
+			day = "Wednesday"
+
 		
 		cleaninglist.append(start.strip())
 		cleaninglist.append(end.strip())
 		cleaninglist.append(time.strip())
-		cleaninglist.append(day1.strip())
-		cleaninglist.append(day2.strip())
+		cleaninglist.append(day.strip())
 		
-		print cleaninglist
 		return cleaninglist 
 

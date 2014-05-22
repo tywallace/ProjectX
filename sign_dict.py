@@ -4,12 +4,11 @@ from street_cleaning import if_cleaning
 reader= csv.reader(open("signs.CSV","r"))
 s = {}
 
-for boro,primary,sequence,distance,arrow,description in reader:
-	description = if_cleaning(description)
+for row in reader:
+	description = if_cleaning(row[5])
 	if description != None:
-		if primary not in s:
-			s[primary] = description
-
+		if row[1] not in s:
+			s[row[1]] = description
 
 # u = {}
 # for key, value in s.iteritems():
