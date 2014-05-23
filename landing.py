@@ -2,7 +2,7 @@ import flask, flask.views
 import os
 
 from identify_location import identify_location
-from sign_dict import s
+from identify_regulation import s
 
 class Landing(flask.views.MethodView):
 	def get(self):
@@ -33,22 +33,5 @@ class Landing(flask.views.MethodView):
 					flask.flash("Street cleaning will start on the " + side_dict[x] + " side at " + b[0] + " and end at " + b[1] + " " + b[2] + " on " + b[3])
 			else:
 				flask.flash("There is no street cleaning on the " + side_dict[x] + " side of the street you specified")
-		# if "N" in location:
-		# 	north = location["N"]
-		# 	flask.flash(north)
-		# 	nrules = s[north]
-		# 	flask.flash(nrules)
-		# if "S" in location:
-		# 	south = location["S"]
-		# 	flask.flash(south)
-		# 	srules = s[south]
-		# 	flask.flash(nrules)
-		# if "E" in location:
-		# 	east = location["E"]
-		# 	erules = s[east]
-		# 	flask.flash(nrules)
-		# if "W" in location:
-		# 	west = location["W"]
-		# 	wrules = s[west]
-		# 	flask.flash(nrules)
+
 		return flask.redirect(flask.url_for('landing'))
