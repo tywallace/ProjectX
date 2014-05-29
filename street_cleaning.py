@@ -4,7 +4,7 @@ def if_cleaning(s):
 
 	if "(SANITATION BROOM SYMBOL)" in s:
 		s = s[s.index("(SANITATION BROOM SYMBOL)")+25:]
-		# s = s[:s.index("<")]
+
 		if "TO" in s:
 			s = s.replace("TO","-")
 		if "=" in s:
@@ -31,7 +31,7 @@ def if_cleaning(s):
 			day = "Tuesday, Thursday & Saturday"
 		
 		elif "EXCEPT SUN" in s:
-			day = "Except Sunday"
+			day = "Monday - Saturday"
 		
 		elif "MON TUES THURS FRI" in s:
 			day = "Monday, Tuesday, Thursday & Friday"
@@ -98,7 +98,6 @@ def if_cleaning(s):
 
 		elif " SUNDAY " in s:
 			day = "Sunday"
-
 		else:
 			day = "Everyday"
 
