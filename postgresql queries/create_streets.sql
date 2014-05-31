@@ -1,12 +1,16 @@
-﻿-- Table: "STREETS"
+﻿-- Table: "streets"
 
--- DROP TABLE "STREETS";
+DROP TABLE "streets";
 
-CREATE TABLE "STREETS"
+CREATE TABLE "streets"
 (
+ID varchar,
+BORO varchar,
 STREET varchar,
 CROSS1 varchar,
-CROSS2 varchar
+CROSS2 varchar,
+SIDE varchar,
+Primary Key(ID)
 );
 
-COPY "STREETS" FROM 'C:\Users\Tyler\Documents\RampUp\ProjectX\street_final_sql.csv' USING DELIMITERS ',' CSV;
+COPY "streets" FROM 'C:\Users\Tyler\Documents\RampUp\ProjectX\street_final_sql.csv' USING DELIMITERS ',' CSV;

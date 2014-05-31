@@ -1,5 +1,5 @@
 def convert_word_to_num(street):
-	num_dict = {"first":"1","second":"2","third":"3","fourth":"4","fifth":"5","sixth":"6","seventh":"7","eighth":"8","ninth":"9","tenth":"10","eleventh":"11","twelfth":"12","thirteenth":"13", "1st":"1","2nd":"2","3rd":"3","4th":"4","5th":"5","6th":"6","7th":"7","8th":"8","9th":"9","10th":"10","11th":"11","12th":"12","13th":"13"}
+	num_dict = {"FIRST":"1","SECOND":"2","THIRD":"3","FOURTH":"4","FIFTH":"5","SIXTH":"6","SEVENTH":"7","EIGHT":"8","NINTH":"9","TENTH":"10","ELEVENTH":"11","TWELFTH":"12","THIRTEENTH":"13", "1ST":"1","2ND":"2","3RD":"3","4TH":"4","5TH":"5","6TH":"6","7TH":"7","8TH":"8","9TH":"9","10TH":"10","11TH":"11","12TH":"12","13TH":"13"}
 	for key in num_dict:
 		if key in street:
 			street = street.replace(key,num_dict[key])

@@ -1,10 +1,8 @@
-﻿-- Table: "SIGNS"
+﻿-- Table: "signs"
 
--- DROP TABLE "SIGNS";
+DROP TABLE "signs";
 
-DROP TABLE "SIGNS";
-
-CREATE TABLE "SIGNS"
+CREATE TABLE "signs"
 (
 ID varchar,
 STARTIME varchar,
@@ -14,4 +12,4 @@ DAY varchar,
 PRIMARY KEY (ID)
 );
 
-COPY "SIGNS" FROM 'C:\Users\Tyler\Documents\RampUp\ProjectX\signs_final.csv' USING DELIMITERS ',' CSV;
+COPY "signs" FROM 'C:\Users\Tyler\Documents\RampUp\ProjectX\signs_final.csv' USING DELIMITERS ',' CSV;

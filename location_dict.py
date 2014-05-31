@@ -6,19 +6,18 @@ d = {}
 s = {}
 
 for boro,primary,street,cross1,cross2,side in reader:
-	location = boro.lower()+convert_word_to_num(street.lower())+convert_word_to_num(cross1.lower())+convert_word_to_num(cross2.lower())+side.lower()
-	location = location.replace(" ","")
-	d[location] = primary
-	s[street] = [cross1, cross2]
-
-with open("locations_final.CSV", 'wb') as outfile:
-	csv_writer = csv.writer(outfile, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
-
-	for k,v in d.items():
-		csv_writer.writerow([k,v])
+	street = convert_word_to_num(street)
+	street = " ".join(street.split())
+	cross1 = convert_word_to_num(cross1)
+	cross1 = " ".join(cross1.split())
+	cross2 = convert_word_to_num(cross2)
+	cross2 = " ".join(cross2.split())
+	s[primary] = [boro,street,cross1,cross2,side]
 
 with open("street_final.CSV", 'wb') as outfile:
 	csv_writer = csv.writer(outfile, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
 
 	for k,v in s.items():
-		csv_writer.writerow([k,v])
+		csv_writer.writerow([k,v[0],v[1],v[2],v[3],v[4]])
+
+print s["S-206325"]
