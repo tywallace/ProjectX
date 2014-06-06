@@ -13,4 +13,4 @@ SIDE varchar,
 Primary Key(ID)
 );
 
-COPY "streets" FROM 'C:\Users\Tyler\Documents\RampUp\ProjectX\street_final_sql.csv' USING DELIMITERS ',' CSV;
+COPY "streets" FROM 'C:\Users\Tyler\Documents\RampUp\ProjectX\street_final.csv' USING DELIMITERS ',' CSV;

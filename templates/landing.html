@@ -8,8 +8,13 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <script type="text/javascript" src="/static/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+    <script type="text/javascript" src="../static/custom.js"></script>
     <!-- Le styles -->
     <link href="../static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/style.css" rel="stylesheet" type="text/css" />
+
     <style type="text/css">
       body {
         padding-top: 20px;
@@ -55,11 +60,7 @@
     <![endif]-->
 
     <!-- Fav and touch icons -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../static/bootstrap/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../static/bootstrap/ico/apple-touch-icon-114-precomposed.png">
-      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../static/bootstrap/ico/apple-touch-icon-72-precomposed.png">
-                    <link rel="apple-touch-icon-precomposed" href="../static/bootstrap/ico/apple-touch-icon-57-precomposed.png">
-                                   <link rel="shortcut icon" href="../static/bootstrap/ico/favicon.png">
+    <link rel="shortcut icon" href="../static/bootstrap/ico/favicon.png">
   </head>
 
   <body>
@@ -81,7 +82,7 @@
         <h1>Never Get Towed!</h1>
         <p class="lead">Enter the street your car was parked on to find out street cleaning times.</p>
         <form class="form-horizontal" role="form" action="{{url_for('landing')}}" method="post" >
-          <div class="form-group">
+          <!-- <div class="form-group">
             <div class="btn-group">
               <select class="form-control" name="boro">
                 <option>Bronx</option>
@@ -91,32 +92,34 @@
                 <option>Staten Island</option>
               </select>
             </div>
-          </div>
+          iv> 
           <div class="form-group">
-            <input class="form-control" type = "text" name="street" placeholder = "Street" required>
+            <input class="form-control" type = "text" name="a" placeholder = "Street">
           </div>
           <div class = "form-group">
-            <input class="form-control" type = "text" name = "cross1" placeholder = "Cross Street" required>
+            <input class="form-control" type = "text" name = "cross1" placeholder = "Cross Street">
           </div>
           <div class = "form-group">
-            <input class="form-control" type = "text" name = "cross2" placeholder = "Cross Street" required>
-          </div>
+            <input class="form-control" type = "text" name = "cross2" placeholder = "Cross Street">
+          </div> -->
+
+
           <div class="form-group">
             <button class="btn btn-primary" type="submit">Search</button>
           </div>
-        </form>
+        
+</form>
+
+
+        <!-- Main Input -->
+        <input type="text" id="search" autocomplete="off">
+
+        <!-- Show Results -->
+        <h4 id="results-text">Showing results for: <b id="search-string">Array</b></h4>
+        <ul id="results"></ul>     
+
       </div>
-      <hr>
-        {% with messages = get_flashed_messages() %}
-                {% if messages %}
-                    Results:
-                    <pre>
-                        {% for message in messages %}
-        {{ message }}
-                        {% endfor %}
-                    </pre>
-                {% endif %}
-            {% endwith %}
+      
       <div class="footer">
         <p>&copy; Company 2013</p>
       </div>

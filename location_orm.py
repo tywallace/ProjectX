@@ -16,9 +16,7 @@ class Location:
 
 	@classmethod
 	def all(self,street="",cross1="",cross2=""):
-		print
 		street = convert_word_to_num(street.upper()) + "%"
-		print street
 		cross1 = convert_word_to_num(cross1.upper()) + "%"
 		cross2 = convert_word_to_num(cross2.upper()) + "%"
 		self.connect()
@@ -30,11 +28,9 @@ class Location:
 			AND cross2 LIKE %s
 			LIMIT 10
 			""", (street,cross1,cross2,))
+		results = []
 		for row in cursor.fetchall():
-			return row
+			results.append(row[2])
+		return results
 		cursor.close()
 		self.disconnect()
-
-
-	# def __init__(self):
-	# 	self.data = []

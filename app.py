@@ -12,6 +12,8 @@ from remote import Remote
 from music import Music
 from landing import Landing
 from callback import Callback
+from test import Test
+from streets import Streets
 
 app = flask.Flask(__name__, static_url_path='/static')
 app.secret_key = settings.secret_key
@@ -20,7 +22,10 @@ main_view_func = Main.as_view('main')
 # Routes
 app.add_url_rule('/',
                  view_func=Landing.as_view('landing'),
-                 methods=["GET", "POST"])
+                 methods=["GET"])
+app.add_url_rule('/streets/<query>',
+                view_func=Streets.as_view('street'),
+                methods=["GET"])
 app.add_url_rule('/<page>/',
                  view_func=main_view_func,
                  methods=["GET"])

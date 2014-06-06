@@ -21,7 +21,6 @@ class Sign:
 		cursor.execute("""
 			SELECT * FROM signs
 			WHERE id LIKE %s
-			LIMIT 10
 			""", (sign_id,))
 		for row in cursor.fetchall():
 			return row
@@ -33,3 +32,4 @@ class Sign:
 	# def __init__(self):
 	# 	self.data = []
 
+print Sign.get("P-003430")
