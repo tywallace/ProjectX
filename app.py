@@ -34,7 +34,6 @@ app.add_url_rule('/login/',
                  methods=["GET", "POST"])
 app.add_url_rule('/remote/',
                  view_func=Remote.as_view('remote'),
-                 
                  methods=['GET', 'POST'])
 app.add_url_rule('/music/',
                  view_func=Music.as_view('music'),

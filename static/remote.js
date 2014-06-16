@@ -1,7 +1,7 @@
 var bestPictures = new Bloodhound({
   datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value'),
   queryTokenizer: Bloodhound.tokenizers.whitespace,
-  remote: '/street'
+  remote: "/streets/"
 });
  
 bestPictures.initialize();

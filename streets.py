@@ -18,13 +18,15 @@ class Streets(flask.views.MethodView):
 		# 	boro = "q"
 		# cross1 = flask.request.form['cross1']
 		# cross2 = flask.request.form['cross2']
-		side_list = ["n","s","e","w"]
+		# side_list = ["n","s","e","w"]
 		# flask.flash("street: " + street)
-		location = Location.all(query)
-		flask.flash(location)
-		side_dict = {"n":"north","s":"south","e":"east","w":"west"}
+		location = Location.main_streets(query)
+		return json.dumps([dict(value=x) for x in location])
+		# return flask.jsonify(streets = location)
+
+		# side_dict = {"n":"north","s":"south","e":"east","w":"west"}
 		
-		side_sweep_list = []
+		# side_sweep_list = []
 
 		# if location != {}:
 		# 	for x in side_list:
@@ -35,7 +37,7 @@ class Streets(flask.views.MethodView):
 		# 				parking_reg = Sign.get(sign_code)
 		# 				flask.flash(parking_reg)
 		# 				flask.flash("Street cleaning will start on the " + side_dict[x] + " side at " + parking_reg[1] + " and end at " + parking_reg[2] + " " + parking_reg[3] + " on " + parking_reg[4])
-		# 				side_sweep_list.append(x)
+		# 				side_sweep_list.append(x)	
 
 		# 	if "n" in side_sweep_list and "s" not in side_sweep_list:
 		# 		flask.flash("There is no street cleaning on the south side of the street.")
@@ -54,4 +56,4 @@ class Streets(flask.views.MethodView):
 		# else:
 		# 	flask.flash("Street not found.")
 
-		return flask.jsonify(streets = location)
+		

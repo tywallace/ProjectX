@@ -13,16 +13,18 @@ $(document).ready(function() {
 				url: "/streets/" + query_value,
 				data: { query: query_value },
 				cache: false,
-				success: function(html){
-					$("ul#results").html(list_results(html["streets"]));
+				success: function(res){
+					list_results(res["streets"]);
 				}
 			});
 		}return false;    
 	}
 
 	$("input#search").live("keyup", function(e) {
+		$("ul#results").empty();
 		// Set Timeout
 		clearTimeout($.data(this, 'timer'));
+
 
 		// Set Search String
 		var search_string = $(this).val();
@@ -37,11 +39,10 @@ $(document).ready(function() {
 			$(this).data('timer', setTimeout(search, 100));
 		};
 	});
-	function list_results(results) {
-		results.each(function(index,item) {
-			ul.append(
-				$(document.createElement('li')).text(item)
-				);
-		});
-	}
+
+	function list_results(streets) {
+		for (i = 0; i < streets.length; ++i) {
+			$("ul#results").append('<li>'+streets[i]+"</li>")
+				};
+		}
 });

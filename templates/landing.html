@@ -11,6 +11,10 @@
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 
     <script type="text/javascript" src="../static/custom.js"></script>
+    <script type="text/javascript" src="../static/bloodhound.js"></script>
+    <script type="text/javascript" src="../static/typeahead.jquery.js"></script>
+    <script type="text/javascript" src="../static/the-basics.js"></script>
+    <script type="text/javascript" src="../static/bootstrap/js/bootstrap.min.js"></script>
     <!-- Le styles -->
     <link href="../static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="../static/style.css" rel="stylesheet" type="text/css" />
@@ -81,7 +85,11 @@
       <div class="jumbotron">
         <h1>Never Get Towed!</h1>
         <p class="lead">Enter the street your car was parked on to find out street cleaning times.</p>
-        <form class="form-horizontal" role="form" action="{{url_for('landing')}}" method="post" >
+<div id="remote">
+  <input class="typeahead" type="text" placeholder="States of USA">
+</div>
+
+        <form class="form-horizontal" role="form" action="/streets/" method="post" >
           <!-- <div class="form-group">
             <div class="btn-group">
               <select class="form-control" name="boro">
@@ -104,21 +112,22 @@
           </div> -->
 
 
+          <!-- Main Input -->
+          <input type="text" id="search" autocomplete="off">
+
+          <!-- Show Results -->
+          <h4 id="results-text">Showing results for: <b id="search-string">Array</b></h4>
+          <ul id="results"></ul>     
+
           <div class="form-group">
             <button class="btn btn-primary" type="submit">Search</button>
           </div>
         
-</form>
-
-
-        <!-- Main Input -->
-        <input type="text" id="search" autocomplete="off">
-
-        <!-- Show Results -->
-        <h4 id="results-text">Showing results for: <b id="search-string">Array</b></h4>
-        <ul id="results"></ul>     
+        </form>
 
       </div>
+
+
       
       <div class="footer">
         <p>&copy; Company 2013</p>

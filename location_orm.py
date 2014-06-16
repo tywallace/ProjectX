@@ -22,7 +22,7 @@ class Location:
 		self.connect()
 		cursor = self.connection.cursor()
 		cursor.execute("""
-			SELECT * FROM streets
+			SELECT DISTINCT * FROM streets
 			WHERE street LIKE %s
 			AND cross1 LIKE %s
 			AND cross2 LIKE %s
@@ -31,6 +31,25 @@ class Location:
 		results = []
 		for row in cursor.fetchall():
 			results.append(row[2])
+		return results
+		cursor.close()
+		self.disconnect()
+
+	@classmethod
+	def main_streets(self,street=""):
+		street = convert_word_to_num(street.upper()) + "%"
+		self.connect()
+		cursor = self.connection.cursor()
+		cursor.execute("""
+			SELECT DISTINCT street 
+			FROM streets
+			WHERE street LIKE %s
+			ORDER BY street
+			LIMIT 10
+			""", (street,))
+		results = []
+		for row in cursor.fetchall():
+			results.append(row[0])
 		return results
 		cursor.close()
 		self.disconnect()
